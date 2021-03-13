@@ -28,7 +28,8 @@
             required
             placeholder="请输入用户名"
             autocomplete="off"
-            class="layui-input"
+            class="layui-input reg-name"
+            name="username"
           />
         </div>
         <div class="layui-form-item">
@@ -38,7 +39,8 @@
             required
             placeholder="请输入密码"
             autocomplete="off"
-            class="layui-input"
+            class="layui-input reg-pwd"
+            name="password"
           />
         </div>
         <div class="layui-form-item">
@@ -56,15 +58,17 @@
       </form>
 
       <!-- 注册的表单 -->
-      <form class="reg-form layui-form">
+      <form class="reg-form layui-form reg-form">
         <div class="layui-form-item">
           <i class="layui-icon layui-icon-username"></i>
           <input
             type="text"
             required
             placeholder="请输入用户名"
+            name="username"
             autocomplete="off"
-            class="layui-input"
+            class="layui-input ipt-name"
+            lay-verify="required"
           />
         </div>
         <div class="layui-form-item">
@@ -72,9 +76,11 @@
           <input
             type="password"
             required
+            lay-verify="required|pass"
             placeholder="请输入密码"
+            name="password"
             autocomplete="off"
-            class="layui-input"
+            class="layui-input passValue"
           />
         </div>
         <div class="layui-form-item">
@@ -82,6 +88,7 @@
           <input
             type="password"
             required
+            lay-verify="required|pass|repwd"
             placeholder="再次确认密码"
             autocomplete="off"
             class="layui-input"
