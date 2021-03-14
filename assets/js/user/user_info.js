@@ -3,12 +3,8 @@ function getInfo() {
   axios({
     url: "/my/userinfo",
   }).then(function (res) {
-    $("input[name=username]").val(res.data.data.username);
-    console.log(res.data.data.username);
-    $("input[name=nickname]").val(res.data.data.nickname);
-    console.log(res.data.data.nickname);
-    $("input[name=email]").val(res.data.data.email);
-    console.log(res.data.data.email);
+    //给表单赋值
+    layui.form.val("formTest", res.data.data);
   });
 }
 getInfo();
@@ -32,7 +28,7 @@ $("#form").on("submit", function (e) {
     data,
   }).then(function (res) {
     layui.layer.msg(res.data.message);
-    // window.parent.getUserInfo();
+    window.parent.getUserInfo();
   });
 });
 

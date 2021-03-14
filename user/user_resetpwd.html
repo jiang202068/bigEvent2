@@ -25,6 +25,7 @@
                 name="oldPwd"
                 required
                 placeholder="请输入原密码"
+                lay-verify="pass"
                 autocomplete="off"
                 class="layui-input"
               />
@@ -39,6 +40,7 @@
                 name="newPwd"
                 required
                 placeholder="请输入新密码"
+                lay-verify="pass|newpass"
                 autocomplete="off"
                 class="layui-input"
               />
@@ -53,6 +55,7 @@
                 name="newPwd2"
                 required
                 placeholder="请确认新密码"
+                lay-verify="pass|repass"
                 autocomplete="off"
                 class="layui-input"
               />
@@ -74,6 +77,7 @@
     <script src="../assets/lib/layui/layui.all.js"></script>
     <script src="../assets/lib/jquery.js"></script>
     <script src="../assets/lib/axios.js"></script>
+    <script src="../assets/js/ajaxBase.js"></script>
     <script src="../assets/js/user/user_resetpwd.js"></script>
   </body>
 </html>

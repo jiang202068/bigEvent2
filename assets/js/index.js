@@ -8,6 +8,7 @@ $("#btnLogout").on("click", function () {
 });
 
 //获取用户信息
+getUserInfo();
 function getUserInfo() {
   axios({
     url: "/my/userinfo",
@@ -16,17 +17,17 @@ function getUserInfo() {
       return layui.layer.msg(res.data.message);
     }
     let info = res.data.data;
-
+    console.log(info);
     //显示名字
     let name = info.nickname || info.username;
     $("#welcome").text("欢迎 " + name);
 
     //显示头像
     if (info.user_pic) {
-      $(".layui-nav-img").show().attr("src", info.user_pic);
+      $(".layui-nav-img").attr("src", info.user_pic).show();
       $(".text-avatar-box").hide();
-    }
-    {
+      console.log(info.user_pic);
+    } else {
       $(".text-avatar-box")
         .show()
         .children()
@@ -35,4 +36,3 @@ function getUserInfo() {
     }
   });
 }
-getUserInfo();
