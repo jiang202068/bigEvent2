@@ -3,6 +3,7 @@ $("#showReg").on("click", function () {
   $(".login-form").hide();
   $(".reg-form").show();
 });
+
 //去登录
 $("#showLogin").on("click", function () {
   $(".login-form").show();
@@ -23,16 +24,15 @@ layui.form.verify({
   },
 });
 
-//注册提交事件
+//提交事件
 $(".reg-form").on("submit", function (e) {
   e.preventDefault();
   let data = $(this).serialize();
   axios({
     method: "POST",
-    url: " http://ajax.frontend.itheima.net/api/reguser",
+    url: "/api/reguser",
     data,
   }).then(function (res) {
-    console.log(res);
     if (res.data.status !== 0) {
       return layui.layer.msg(res.data.message);
     }
@@ -43,16 +43,15 @@ $(".reg-form").on("submit", function (e) {
   });
 });
 
-//注册登录事件
+//登录事件
 $(".login-form").on("submit", function (e) {
   e.preventDefault();
   let data = $(this).serialize();
   axios({
     method: "POST",
-    url: "http://ajax.frontend.itheima.net/api/login",
+    url: "/api/login",
     data,
   }).then((res) => {
-    console.log(res);
     if (res.data.status !== 0) {
       return layui.layer.msg(res.data.message);
     }

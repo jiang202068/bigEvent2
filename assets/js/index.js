@@ -1,27 +1,21 @@
 //退出
-$("#btnLogout").on("click", { icon: 2, title: "提示" }, function () {
-  layui.layer.confirm("确定退出？", function (index) {
+$("#btnLogout").on("click", function () {
+  layui.layer.confirm("确定退出吗？", function (index) {
+    layui.layer.close(index);
     localStorage.removeItem("token");
     location.href = "login.html";
-    layui.layer.close(index);
   });
 });
 
 //获取用户信息
-getUserInfo();
 function getUserInfo() {
   axios({
-    url: "http://ajax.frontend.itheima.net/my/userinfo",
-    headers: {
-      Authorization: localStorage.getItem("token"),
-    },
+    url: "/my/userinfo",
   }).then(function (res) {
-    console.log(res);
     if (res.data.status !== 0) {
       return layui.layer.msg(res.data.message);
     }
     let info = res.data.data;
-    console.log(info);
 
     //显示名字
     let name = info.nickname || info.username;
@@ -41,5 +35,4 @@ function getUserInfo() {
     }
   });
 }
-
-//用户
+getUserInfo();
